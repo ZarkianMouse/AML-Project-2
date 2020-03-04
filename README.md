@@ -2,17 +2,24 @@
 ## Requirements for Project
 
 Your Python script prints a summary of your exploration:
+
  1. How many features/attributes does the dataset have?
  
  2. What is the class distribution?
+ 
   a. How many instances in class1, how many in class2, …
+  
   b. Visual display of the instances (data points) with different classes colored differently
+  
     i. If you have more than 3 attributes in your dataset, you can plot the data points in reduced dimensions (2 or 3)
  
  3. Dataset partition (training, testing); how many percent of the data is used for training and how many percent for testing
  
  4. Confusion matrices:
+ 
    a. kNN
+   
    b. logistic regression
+   
    c. SVM
 
