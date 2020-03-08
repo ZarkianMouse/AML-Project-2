@@ -8,12 +8,6 @@ This program tries to classify a portion of our selected data set using the ment
 learning algorithms.
 """
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from matplotlib import cm
-from pandas.plotting import scatter_matrix
-import matplotlib.pyplot as plt
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import confusion_matrix
 
 from knn import _knn
 from logistic import _logistic
@@ -27,9 +21,9 @@ lookup_fall_type = dict(zip(falldetection.ACTIVITY.unique(), falldetection.NAME.
 print(lookup_fall_type)
 
 X = falldetection[['TIME', 'SL', 'EEG', 'BP', 'HR', 'CIRCLUATION']]
-y = falldetection['NAME']
+y = falldetection['ACTIVITY']
 
-_knn(falldetection, X, y)
-_logistic(falldetection, X, y)
-_SVM(falldetection, X, y)
+_knn(X, y)
+_logistic(X, y)
+_SVM(X, y)
 
