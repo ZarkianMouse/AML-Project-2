@@ -28,7 +28,7 @@ def _knn(X, y):
     knn.score(X_test, y_test)
     knn_predict = knn.predict(X_test)
     print("The prediction", knn_predict)
-
+    print("KNN Confusion Matrix:")
     print(confusion_matrix(y_test, knn_predict))
 
     # How sensitive is k-NN classification accuracy to the choice of the 'k' parameter?

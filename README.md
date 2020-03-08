@@ -1,4 +1,11 @@
 # AML-Project-2
+
+## How to run
+There are individual scripts for the individual ML classifying algorithms. The
+AML_project2.py will run all three scripts. So just do
+
+	python AML_project2.py
+
 ## Requirements for Project
 
 Your Python script prints a summary of your exploration:
