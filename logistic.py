@@ -40,5 +40,5 @@ def _logistic(X, y, lookup_fall_type):
     lr.score(X_test, y_test)
     lr_predict = lr.predict(X_test)
     print("The prediction", lr_predict)
-    print("Logistic Regression Confusion Matrix:\n")
-    print(confusion_matrix(y_test, lr_predict))
+    print("\nLogistic Regression Confusion Matrix:")
+    print(confusion_matrix(y_test, lr_predict), '\n')
