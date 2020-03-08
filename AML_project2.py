@@ -24,6 +24,6 @@ X = falldetection[['TIME', 'SL', 'EEG', 'BP', 'HR', 'CIRCLUATION']]
 y = falldetection['ACTIVITY']
 
 _knn(X, y)
-_logistic(X, y)
+_logistic(X, y, lookup_fall_type)
 _SVM(X, y)
 
