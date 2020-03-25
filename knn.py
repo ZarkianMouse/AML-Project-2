@@ -12,7 +12,7 @@ from sklearn.metrics import confusion_matrix
 
 def _knn(X, y):
     print ("__KNN__")
-    X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=.75, random_state=0)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=.95, random_state=0)
 
     # plotting a scatter matrix
     cmap = cm.get_cmap('gnuplot')
