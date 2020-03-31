@@ -29,7 +29,20 @@ def _knn(X, y):
     knn_predict = knn.predict(X_test)
     print("The prediction", knn_predict)
     print("KNN Confusion Matrix:")
-    print(confusion_matrix(y_test, knn_predict), '\n')
+
+    knn_cm = confusion_matrix(y_test, knn_predict)
+    print(knn_cm,'\n')
+
+    # plotting the confusion matrix
+    import seaborn as sns
+    fig, ax = plt.subplots()
+    cbar_ax = fig.add_axes([.92, .3, .02, .4])
+    sns.heatmap(knn_cm, ax=ax, annot=True, cbar_ax=cbar_ax)
+    ax.set_title('Confusion Matrix KNN Classifier')
+    ax.set_xlabel('Predicted labels')
+    ax.set_ylabel('True labels')
+    ax.xaxis.set_ticklabels(['Fall', 'Sit', 'Cramps', 'Run', 'Stand', 'Walk'])
+    ax.yaxis.set_ticklabels(['Fall', 'Sit', 'Cramps', 'Run', 'Stand', 'Walk'])
 
     # How sensitive is k-NN classification accuracy to the choice of the 'k' parameter?
     k_range = range(1, 20)
@@ -48,6 +61,7 @@ def _knn(X, y):
 
     # NOTICE!!!!!!!
     # This block of code below took my computer ~30 minutes to execute!!! Set to true if you want to run it
+    """
     _show = False
     if _show:
         # How sensitive is k-NN classification accuracy to the train/test split proportion?
@@ -65,4 +79,4 @@ def _knn(X, y):
 
         plt.xlabel('Training set proportion (%)')
         plt.ylabel('accuracy')
-        plt.show()
+        plt.show() """

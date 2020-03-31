@@ -41,4 +41,16 @@ def _logistic(X, y, lookup_fall_type):
     lr_predict = lr.predict(X_test)
     print("The prediction", lr_predict)
     print("\nLogistic Regression Confusion Matrix:")
-    print(confusion_matrix(y_test, lr_predict), '\n')
+    lr_cm = confusion_matrix(y_test, lr_predict)
+    print(lr_cm, '\n')
+
+    # plotting the confusion matrix
+    import seaborn as sns
+    fig, ax = plt.subplots()
+    cbar_ax = fig.add_axes([.92, .3, .02, .4])
+    sns.heatmap(lr_cm, ax=ax, cmap="Accent", annot=True, cbar_ax=cbar_ax)
+    ax.set_title('Confusion Matrix LR Classifier')
+    ax.set_xlabel('Predicted labels')
+    ax.set_ylabel('True labels')
+    ax.xaxis.set_ticklabels(['Fall', 'Sit', 'Cramps', 'Run', 'Stand', 'Walk'])
+    ax.yaxis.set_ticklabels(['Fall', 'Sit', 'Cramps', 'Run', 'Stand', 'Walk'])

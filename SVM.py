@@ -61,7 +61,7 @@ def _SVM(X, y):
     # kernel, default=’rbf’ = radial basis function
     # if poly, default degree = 3
     ### NOTE: This took my computer over an hour and a half to run.
-    _exec = False
+    _exec = True
     if _exec:
         svc = SVC(degree=2, kernel='poly', random_state=1)
         svc.fit(X_train, y_train)
@@ -70,7 +70,19 @@ def _SVM(X, y):
 
         svc_predict = svc.predict(X_test)
         print("\nNONLinear SVM Confusion Matrix:")
-        print(confusion_matrix(y_test, svc_predict), '\n')
+        svm_cm = confusion_matrix(y_test, svc_predict)
+        print(svm_cm, '\n')
+
+        # plotting the confusion matrix
+        import seaborn as sns
+        fig, ax = plt.subplots()
+        cbar_ax = fig.add_axes([.92, .3, .02, .4])
+        sns.heatmap(svm_cm, ax=ax, cmap="Greens", annot=True, cbar_ax=cbar_ax)
+        ax.set_title('Confusion Matrix NONLinear SVM Classifier')
+        ax.set_xlabel('Predicted labels')
+        ax.set_ylabel('True labels')
+        ax.xaxis.set_ticklabels(['Fall', 'Not Fall'])
+        ax.yaxis.set_ticklabels(['Fall', 'Not Fall'])
 
     # Create classifier object: Create a nonlinear SVM classifier
     # kernel, default=’rbf’ = radial basis function
@@ -88,7 +100,7 @@ def _SVM(X, y):
 
     # SVM with linear kernel
     ### NOTE: This took my computer took a while to run.
-    _exec = False
+    _exec = True
     if _exec:
         svc = SVC(C=10, degree=1, kernel='poly')
         svc.fit(X_train, y_train)
@@ -97,4 +109,16 @@ def _SVM(X, y):
 
         svc_predict = svc.predict(X_test)
         print("\nLinear SVM Confusion Matrix:")
-        print(confusion_matrix(y_test, svc_predict) , '\n')
+        svm_cm = confusion_matrix(y_test, svc_predict)
+        print(svm_cm, '\n')
+
+        # plotting the confusion matrix
+        import seaborn as sns
+        fig, ax = plt.subplots()
+        cbar_ax = fig.add_axes([.92, .3, .02, .4])
+        sns.heatmap(svm_cm, ax=ax,cmap="Greens", annot=True, cbar_ax=cbar_ax)
+        ax.set_title('Confusion Matrix Linear SVM Classifier')
+        ax.set_xlabel('Predicted labels')
+        ax.set_ylabel('True labels')
+        ax.xaxis.set_ticklabels(['Fall', 'Sit', 'Cramps', 'Run', 'Stand', 'Walk'])
+        ax.yaxis.set_ticklabels(['Fall', 'Sit', 'Cramps', 'Run', 'Stand', 'Walk'])
